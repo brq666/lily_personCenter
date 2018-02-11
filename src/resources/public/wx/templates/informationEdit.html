@@ -1,0 +1,85 @@
+<ion-view view-title="完善资料">
+  <ion-content>
+    <div class="brand-header" style="position: relative; height: 100px; text-align: center;">
+      <img ng-src="img/radian_bg.png" style="position: absolute; left: 0; bottom: 0; height: 100px;">
+      <img ng-src="{{userinfo.wxInfo.headimgurl}}" class="head-img" style="position: relative; top: 20px;">
+    </div>
+
+    <div class="weui-cells input-right-cells" style="margin-top: 40px;">
+      <div class="weui-cell">
+        <div class="require-mark"></div>
+        <div class="weui-cell__hd"><label class="weui-label">姓名</label></div>
+        <div class="weui-cell__bd">
+          <input ng-model="inputData.name" class="weui-input" placeholder="请填写"/>
+        </div>
+      </div>
+
+      <div class="weui-cell">
+        <div class="weui-cell__hd"><label class="weui-label">手机</label></div>
+        <div class="weui-cell__bd">
+          <div class="fake-input" ng-style="inputData.mobile ? {} : {color: '#aaaaaa'}" disabled>
+            {{inputData.mobile || '请填写'}}
+          </div>
+        </div>
+      </div>
+
+      <div class="weui-cell weui-cell_select weui-cell_select-after">
+        <div class="require-mark"></div>
+        <div class="weui-cell__hd"><label class="weui-label">性别</label></div>
+        <div class="weui-cell__bd" style="overflow: hidden;">
+          <div ng-click="openSexPicker()" class="fake-input" ng-style="inputData.sex ? {} : {color: '#aaaaaa'}">
+            {{inputData.sex || '请选择'}}
+          </div>
+        </div>
+      </div>
+
+      <div class="weui-cell" ng-class="{'weui-cell_select': !userinfo.isInfoComplete, 'weui-cell_select-after': !userinfo.isInfoComplete}">
+        <div class="require-mark"></div>
+        <div class="weui-cell__hd"><label class="weui-label">生日</label></div>
+        <div class="weui-cell__bd" style="overflow: hidden;">
+          <div ng-click="openBirthdayPicker()" class="fake-input" ng-style="inputData.birthday ? {} : {color: '#aaaaaa'}" ng-disabled="userinfo.isInfoComplete">
+            {{inputData.birthday || '请选择'}}
+          </div>
+        </div>
+      </div>
+
+      <div class="weui-cell weui-cell_select weui-cell_select-after" ng-show="userinfo.isInfoComplete">
+        <div class="weui-cell__hd"><label class="weui-label">职业</label></div>
+        <div class="weui-cell__bd" style="overflow: hidden;">
+          <div ng-click="openJobPicker()" class="fake-input" ng-style="inputData.job ? {} : {color: '#aaaaaa'}">
+            {{inputData.job || '请选择'}}
+          </div>
+        </div>
+      </div>
+
+      <div class="weui-cell weui-cell_select weui-cell_select-after" ng-show="userinfo.isInfoComplete">
+        <div class="weui-cell__hd"><label class="weui-label">地址</label></div>
+        <div class="weui-cell__bd" style="overflow: hidden;">
+          <div ng-click="openAddressPicker()" class="fake-input" ng-style="inputData.addressArea ? {} : {color: '#aaaaaa'}">
+            {{inputData.addressArea || '请选择'}}
+          </div>
+        </div>
+      </div>
+
+      <div class="weui-cell" ng-show="userinfo.isInfoComplete">
+        <div class="weui-cell__bd">
+          <input ng-model="inputData.address" class="weui-input" placeholder="请填写详细地址,不少于5字"/>
+        </div>
+      </div>
+
+      <div class="weui-cell" ng-show="userinfo.isInfoComplete">
+        <div class="weui-cell__hd"><label class="weui-label">邮编</label></div>
+        <div class="weui-cell__bd">
+          <input ng-model="inputData.zipCode" class="weui-input" type="tel" placeholder="请填写"/>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding: 10px; margin-top: 20px;">
+      <a class="weui-btn btn_brand" ng-class="{'weui-btn_disabled': isLoading}" ng-click="save()">
+        <i ng-show="isLoading" class="weui-loading"></i>
+        提交
+      </a>
+    </div>
+  </ion-content>
+</ion-view>

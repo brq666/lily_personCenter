@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.gwhere.mapper.SysCategoryItemMapper">
+    <select id="getCategoryItems" resultType="org.gwhere.model.SysCategoryItem">
+        select i.*
+          from sys_category c, sys_category_item i
+         where c.id = i.category_id
+           and c.status = 1
+           and i.status = 1
+           and c.category_value = #{categoryValue}
+         order by i.item_order
+    </select>
+</mapper>

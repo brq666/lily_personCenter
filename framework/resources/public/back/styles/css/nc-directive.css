@@ -1,0 +1,599 @@
+body {
+    min-width: 800px !important;
+}
+
+/*nc-input*/
+.nc-input {
+    border: 1px solid #bdbdbd;
+    border-radius: 1px;
+    background: #fafafa;
+    color: #666666;
+    height: 24px;
+    font-size: 12px;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 6px 12px;
+    outline: none;
+}
+
+.minimizable-button{
+    position: absolute;
+    float: left;
+    left: 0;
+    z-index: 999;
+    height: auto;
+}
+
+.ui-grid-cell > .ng-scope input {
+    padding: 4px;
+    border: 0 !important;
+}
+
+.ui-grid-render-container-body .ui-grid-header-viewport {
+    overflow-y: scroll !important;
+}
+
+.ui-grid-cell-contents {
+    text-align: center;
+    font-size: 12px !important;
+    font-weight: normal !important;
+}
+
+.sidr-menu-button-show {
+    width: 11px;
+    background: url('../img/left.jpg') no-repeat;
+    height: 17px;
+}
+
+.sidr-menu-button-hidden {
+    width: 11px;
+    background: url('../img/right.jpg') no-repeat;
+    height: 17px;
+}
+
+/*nc-input结束*/
+/*nc-collapse*/
+.nc-collapse {
+    width: 100%;
+    min-width: 50px;
+    height: auto;
+    border: 1px solid #2564A5;
+    background-color: #ffffff;
+}
+
+.nc-minimizable-hm {
+    width: 25px !important;
+    overflow: hidden;
+}
+
+.nc-minimizable-vm {
+    height: 25px !important;
+    overflow: hidden;
+}
+
+.ui-grid-header-viewport {
+    border-right: 1px solid #d4d4d4;
+}
+
+.btn-datepicker {
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #D8D8D8 !important;
+    outline: none !important;
+    height: 30px;
+    font-size: 12px !important;
+}
+
+.uib-datepicker-popup {
+    padding-top: 0;
+    border: 2px solid #2564A5;
+    border-radius: 2px !important;
+    box-shadow: 0px 2px 20px -3px #2564A5
+}
+
+.uib-datepicker-popup.dropdown-menu {
+    margin: -1px 0 0 -2px;
+}
+
+.uib-yearpicker > thead button, .uib-daypicker > thead button, .uib-monthpicker > thead button {
+    background-color: rgb(30, 79, 146) !important;
+    opacity: 1 !important;
+    color: #fff !important;
+}
+
+.ui-grid-pinned-container.ui-grid-pinned-container-left .ui-grid-header-cell:last-child {
+    border-right: 1px solid #d3d3d3;
+}
+
+.uib-daypicker .weeks {
+    height: 28px;
+    line-height: 28px;
+    border-bottom: 1px solid #e4e4e4;
+}
+
+.ui-grid-cell-focus {
+    background-color: #DFE5FF !important;
+}
+
+.btn-datepicker.btn-info.active {
+    background-color: #fff;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.btn-datepicker.btn-info.active > span {
+    background-color: #fb6362;
+    display: block;
+    height: 25px;
+    margin: -6px;
+    line-height: 25px;
+    border-radius: 15px;
+}
+
+.glyphicon-chevron-left:before {
+    content: url('../img/14.png');
+}
+
+.glyphicon-chevron-right:before {
+    content: url('../img/15.png');
+}
+
+.btn-datepicker.btn-info.active > .text-info {
+    color: #fff;
+}
+
+.sidr .menuGroup[collapsable]:before {
+    content: url('../img/1.png');
+    padding-right: 10px;
+}
+
+.sidr .menuGroup[collapsable].collapsed:before {
+    content: url('../img/2.png');
+}
+
+.sidr .rootMenuGroup[collapsable]:before {
+    content: url('../img/1-1.png');
+    padding-right: 10px;
+}
+
+.sidr .rootMenuGroup[collapsable].collapsed:before {
+    content: url('../img/2-1.png');
+}
+
+.ui-grid-selection-row-header-buttons {
+    cursor: pointer;
+    opacity: 1;
+    text-indent: -9999px;
+    background: url("../img/10.png") no-repeat center;
+}
+
+.ui-grid-selection-row-header-buttons.ui-grid-row-selected {
+    opacity: 1;
+    background: url("../img/9.png") no-repeat center;
+}
+
+.ui-grid-selection-row-header-buttons.ui-grid-all-selected {
+    opacity: 1;
+    background: url("../img/9.png") no-repeat center;
+}
+
+.nc-collapse-bar {
+    width: 100%;
+    background-color: #4786C8;
+    padding: 5px;
+    color: #fff;
+}
+
+.nc-collapse-bar span {
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.nc-collapse-title-btn {
+    padding: 0px;
+    background: #4786C8;
+    border: 1px solid #4786C8;
+    margin-top: -4px;
+    line-height: normal;
+}
+
+.nc-collapse-title-btn span {
+    margin-right: 5px;
+}
+
+.nc-collapse-content {
+    width: 100%;
+    height: auto;
+    padding: 5px 5px 2px 5px;
+    display: inline-block;
+}
+
+.form-group {
+    margin-bottom: 0;
+}
+
+.nc-collapse-item {
+    display: inline-block;
+    height: auto;
+    padding: 5px;
+}
+
+.nc-collapse-item > .form-control {
+    border: none;
+}
+
+.nc-collapse-item-content {
+    float: left;
+    height: 27px;
+    width: 169px;
+}
+
+.nc-collapse-hr {
+    border-top: 1px dashed #e2e2e2;
+!important;
+    margin-top: -1px;
+!important;
+    margin-bottom: 1px;
+!important;
+}
+
+/*nc-collapse结束*/
+/*nc-select*/
+.nc-label {
+    font-size: 12px;
+    color: #333;
+    font-weight: normal;
+    width: 90px;
+    height: 26px;
+    padding-right: 10px;
+    line-height: 27px;
+    float: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    direction: rtl;
+    margin-bottom: 0 !important;
+}
+
+/*nc-select结束*/
+/*nc-calender*/
+.glyphicon-calendar {
+    color: #2E6AA8;
+}
+
+.nc-calender {
+    height: 24px;
+    border: 1px solid #bdbdbd;
+    border-radius: 1px;
+    background: #fafafa;
+    color: #333 !important;
+}
+
+.nc-calender input {
+    border: none !important;
+    box-shadow: none !important;
+    height: 24px;
+    line-height: 24px;
+    font-size: 12px;
+    background: #fafafa !important;
+    border-radius: 1px 1px 0 0;
+    color: #333;
+}
+
+.nc-calender > .text-muted {
+    color: #d1d1d1 !important;
+}
+
+.nc-calender-btn {
+    width: 30px;
+    height: 24px;
+    padding: 0;
+    outline: none;
+    border-left: 1px solid #bdbdbd;
+    background: #fafafa;
+}
+
+/*nc-calender结束*/
+/*nc-radio*/
+.nc-radio-item {
+    height: 28px;
+    line-height: 28px;
+    margin-right: 15px;
+    font-size: 12px;
+}
+
+.nc-radio {
+    margin: 6px 5px 0 0 !important;
+    padding: 0 15px;
+}
+
+/*nc-radio结束*/
+
+/* nc-select-tree */
+.nc-select-tree {
+    height: auto;
+}
+
+.ztree {
+    width: 115% !important;
+}
+
+.nc-select-tree-main {
+    height: 24px;
+    position: relative;
+    background-color: #fafafa;
+    border: 1px solid #bdbdbd;
+}
+
+.nc-select-tree-main input {
+    border: none;
+    background: #fafafa;
+    font-size: 12px;
+    color: #333;
+    text-align: left;
+    /*height: 24px;*/
+    height: 25px;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 6px 12px;
+    outline: none !important;
+}
+
+.nc-select-tree-content {
+    display: none;
+    min-width: 169px;
+    width: auto;
+    height: auto;
+    overflow: auto;
+    border: 1px solid #ccc;
+    position: absolute;
+    z-index: 999;
+    left: -1px !important;
+    top: 24px !important;
+}
+
+.nc-select-tree-content-menu {
+    position: relative;
+    max-height: 250px;
+    top: 0;
+    overflow: auto;
+    background-color: white;
+    padding-right: 20px;
+    overflow-x: hidden;
+}
+
+.nc-select-tree-content-btn {
+    overflow: hidden;
+    padding: 8px 16px;
+    background: #fff;
+    border-top: 1px solid #E2E2E2;
+}
+
+.nc-select-tree-content-btn button {
+    float: right;
+    width: 50px;
+    height: 25px;
+    font-size: 12px;
+    background: #4886C8;
+    text-align: center;
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+}
+
+.nc-select-tree-drop-btn {
+    width: 30px;
+    height: 24px;
+    padding: 0;
+    outline: none !important;
+    border: none;
+    border-left: 1px solid #bdbdbd;
+    background: #fafafa;
+    border-radius: 0 !important;
+}
+
+.nc-select-tree-drop-btn img {
+    margin-bottom: 3px;
+}
+
+/* nc-select-tree结束*/
+
+/**/
+.nc-btn {
+    height: 32px;
+    line-height: 32px;
+    color: #FDFFFD;
+    padding: 0 12px;
+    font-size: 12px;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+}
+
+.btn-rect-blue {
+    background-color: #4786C8 !important;
+}
+
+.btn-rect-blue:hover {
+    background-color: #2565A5;
+}
+
+.btn-rect-pink {
+    background-color: #FF7C80 !important;
+}
+
+.btn-rect-pink:hover {
+    background-color: #EA5D62;
+}
+
+.pagination {
+    margin: 10px 0;
+}
+
+.pagination-container {
+    width: 100%;
+    text-align: left;
+}
+
+/*nc-grid*/
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+    background-color: #2565A5;
+    border-color: #2565A5;
+}
+
+.pagination > li > a, .pagination > li > span {
+    padding: 3px 12px;
+}
+
+/*nc-grid结束*/
+
+.ztree .level0 li a {
+    padding-left: 7px;
+}
+
+/* button 默认样式*/
+.button-group {
+    padding: 8px 0;
+    text-align: right;
+}
+
+.button-group > button {
+    height: 26px;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 6px 15px;
+    line-height: 1;
+    border-radius: 2px;
+    background: #4886C8;
+    cursor: pointer;
+    border: 1px solid transparent;
+    color: white;
+}
+
+.button-group-grid {
+    text-align: center;
+    line-height: 25px;
+}
+
+.button-group-grid > button {
+    height: 20px;
+    font-size: 10px !important;
+    padding: 4px 12px;
+    line-height: 1;
+    background: #4886C8;
+    border-radius: 0;
+    cursor: pointer;
+    border: 1px solid transparent;
+    color: white;
+}
+
+
+/* nc-menu */
+.nc-menu .zTree {
+    margin-top: 10px;
+    border: 1px solid #617775;
+    background: red;
+    width: 220px;
+    height: 360px;
+    overflow-y: scroll;
+    overflow-x: auto;
+}
+
+.nc-menu .rMenu {
+    position: fixed;
+    white-space: nowrap;
+    visibility: hidden;
+    top: 0;
+    background-color: #555;
+    text-align: left;
+    padding: 2px;
+}
+
+.nc-menu .rMenu ul {
+    padding: 0;
+    margin: 0;
+    font-size: 10px;
+}
+
+.nc-menu .rMenu ul li {
+    margin: 1px 0;
+    padding: 0 5px;
+    cursor: pointer;
+    list-style: none outside none;
+    background-color: #DFDFDF;
+}
+
+/* nc-breadcrumd */
+.my-breadcrumb {
+    width: 100%;
+    height: 39px;
+    margin-left: 11px;
+    position: fixed;
+    background-color: #fff;
+    z-index: 999;
+    top: 80px;
+    transition: top 0.5s ease-out;
+    -webkit-transition: top 0.5s ease-out;
+}
+
+.my-breadcrumb > ul {
+    width: 100%;
+    height: 40px;
+    background-color: #4786C8;
+    line-height: 40px;
+    padding: 0 10px;
+    color:#fff;
+    font-size: 12px;
+    border: 1px solid #2564A5;
+}
+
+.my-breadcrumb > ul > li {
+    display: inline-block;
+}
+
+.my-breadcrumb > ul > li + li:before {
+    padding: 0 5px;
+    content: ">";
+}
+
+.my-breadcrumb > ul > .active {
+    font-weight: bold
+}
+
+.my-breadcrumb > ul > li > a {
+    color:#fff;
+    text-decoration:none
+}
+
+/* header-bar */
+.header-bar {
+    width: 100%;height: 80px;position: fixed;top: 0;left: 0;transition: top 0.5s ease-out;z-index: 1000;background-color: #fff
+}
+
+.header-img {
+    width: 225px;height: 100%;float: left;text-align: center
+}
+
+.header-img img {
+    width: 80px;height: 80px;margin: 0 auto
+}
+
+.header-content {
+    width: 100%;height: 100%;position: relative;color: #4786C8
+}
+
+.header-content-message {
+    width: 30%;height: 100%;float: left;font-size: 25px;font-weight: bold;padding-left: 50px;line-height: 80px
+}
+
+.header-content-user {
+    width: 30%;height: 100%;float: right;padding-left: 270px;padding-top: 50px
+}
+
+

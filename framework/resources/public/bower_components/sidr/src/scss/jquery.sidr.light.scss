@@ -1,0 +1,19 @@
+// Fonts
+$sidr-font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+$sidr-font-size: 15px;
+
+// Colors
+$sidr-background: #f8f8f8;
+$sidr-background-shadow-color: #ebebeb;
+$sidr-text-color: #333;
+$sidr-box-shadow-color: #000;
+$sidr-input-background-color: #000;
+
+// Width
+$sidebar-width: 260px;
+$sidebar-width-neg: -260px;
+
+// Margin-top(gwhere后端含有header-bar)
+$side-margin-top: 80px;
+
+@import 'sidr/base';

@@ -1,0 +1,74 @@
+<ion-view view-title="个人中心">
+    <ion-content>
+        <!--头部-->
+        <div class="brand-header" style="position: relative; height: 100px; margin-bottom: 20px;">
+            <img ng-src="img/radian_bg.png" style="position: absolute; left: 0; bottom: 0; height: 100px;">
+            <div ng-click="goInformation()" style="position: absolute; left: 25px; top: 40px; width: 200px;">
+                <img ng-src="{{userinfo.wxInfo.headimgurl}}" class="head-img">
+                <p style="position: absolute; left: 80px; top: 20px; font-size: 0.7rem; white-space: nowrap; color: #434343;">
+                    欢迎来到 {{brandInfo.name}}
+                </p>
+                <p ng-if="userinfo"
+                   style="position: absolute; left: 80px; top: 40px; font-size: 1.0rem; font-weight: 500; white-space: nowrap; color: #434343;">
+                    {{getWelcomeText()}}
+                </p>
+            </div>
+            <div ng-click="goInformation()" class="fa fa-cog"
+                 style="position: absolute; right: 0; top: 0; padding: 10px; color: inherit; font-size: 24px;">
+            </div>
+        </div>
+
+        <!--会员卡-->
+        <div class="card-text" style="float: left; width: 60%; margin-left: 3%; margin-top: 20px; margin-bottom: 10px; position: relative;"
+             ng-style="{height: clientWidth*0.33+'px'}">
+            <img ng-src="{{brandInfo.config['cardBgPath'+userinfo.card.card_grade] ? imgPath+brandInfo.config['cardBgPath'+userinfo.card.card_grade] : imgPath+brandInfo.config.cardBgPath}}"
+                 style="display: block; width: 100%; height: 100%; border-radius: 5px; box-shadow: 0 0 5px #aaaaaa;">
+            <span style="position: absolute; top: 10px; left: 20px; font-size: 1.5rem; font-weight: 600;">{{gradeType[userinfo.card.card_grade]}}</span>
+            <span style="position: absolute; top: 45px; left: 20px; font-size: 0.8rem;">{{userinfo.card.card_no}}</span>
+            <span style="position: absolute; bottom: 5px; left: 20px; font-size: 0.7rem;">有效期至 {{userinfo.card.grade_expire}}</span>
+        </div>
+
+        <!--优惠券-->
+        <div ng-click="goCoupon()"
+             style="float: left; width: 31%; margin-left: 3%; margin-top: 20px; position: relative;"
+             ng-style="{height: clientWidth*0.18+'px'}">
+            <img ng-src="{{imgPath+brandInfo.config.couponBgPath}}"
+                 style="display: block; width: 100%; height: 100%; border-radius: 3px; box-shadow: 0 0 5px #aaaaaa;">
+            <img src="img/coupon_line.png" style="position: absolute; width: 6%; height: 100%; top: 0; left: 15%;">
+            <div class="card-text" style="position: absolute; top: 0; right: 0; width: 82%; padding-top: 5px; text-align: center;">
+                <span style="font-size: 1.5rem; font-weight: 900;">{{userinfo.couponNum}}</span><span
+                    style="font-size: 0.7rem;">张</span><br>
+                <span style="font-size: 0.7rem;">— 优惠券 —</span>
+            </div>
+        </div>
+
+        <!--积分-->
+        <div class="card-text" ng-click="goPoint()" style="float: left; width: 31%; margin-left: 3%; position: relative;"
+             ng-style="{height: clientWidth*0.12+'px', 'margin-top': clientWidth*0.03+'px'}">
+            <img ng-src="{{imgPath+brandInfo.config.pointBgPath}}"
+                 style="display: block; width: 100%; height: 100%; border-radius: 3px; box-shadow: 0 0 5px #aaaaaa;">
+            <div style="position: absolute; top: 0; width: 100%; height: 10px; text-align: center; font-size: 1.5rem; font-weight: 900;">
+                {{userinfo.card.point}}
+            </div>
+            <span style="position: absolute; bottom: 0; right: 10px; font-size: 0.7rem;">积分</span>
+        </div>
+
+        <!-- 轮播图 -->
+        <ion-slide-box style="clear: both;" ng-if="banners" does-continue="true" auto-play="true">
+            <ion-slide ng-repeat="banner in banners">
+                <a ng-click="goUrl(banner.url)">
+                    <img ng-src="{{imgPath+banner.picPath}}"/>
+                </a>
+            </ion-slide>
+        </ion-slide-box>
+
+        <!--菜单-->
+        <div class="brand-menu" style="padding: 2%;">
+            <a ng-repeat="menu in brandInfo.menus" class="brand-menu-item" ng-click="goUrl(menu.url)">
+                <div class="brand-menu-icon {{menu.icon}}"></div>
+                <div class="brand-menu-label">{{menu.name}}</div>
+            </a>
+        </div>
+
+    </ion-content>
+</ion-view>

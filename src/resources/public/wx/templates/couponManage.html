@@ -1,0 +1,187 @@
+<ion-view view-title="优惠券">
+    <div class="weui-tab">
+        <div class="weui-navbar">
+            <div class="weui-navbar__item weui-bar__item_on"
+                 style="padding-left: 20px;color: #d14c4d;border-bottom: 2px #d14c4d solid;">
+                可用券（{{availableCoupons.length}}）
+            </div>
+            <div class="weui-navbar__item">
+                已使用
+            </div>
+            <div class="weui-navbar__item">
+                已过期
+            </div>
+        </div>
+        <div class="weui-tab__panel" style="background: #efefef;padding-top: 48px;height: 100%;">
+            <div style="background: #efefef;height: 100%;">
+                <div class="weui-panel weui-panel_access" style="background: #efefef;height: 100%;">
+                    <div class="weui-panel__bd" style="background: #efefef;">
+                        <div ng-repeat="obj in availableCoupons"
+                             style="background: white;border-radius: 3px;box-shadow: 0px 0px 1px 0px #8b8b8b;margin: 10px;">
+                            <div class="weui-media-box weui-media-box_appmsg"
+                                 style="padding:0px;border-radius: 3px;height: 65px;">
+                                <div style="width: 33%;height: 100%;position: relative;margin-right: 10px;"
+                                     class="weui-media-box__hd">
+                                    <img ng-src="{{imgPath+brandInfo.config.couponBgPath}}" alt=""
+                                         style="position: absolute;z-index: 1;border-radius: 3px;margin-left: -50%;height: 100%;box-shadow: rgb(139, 139, 139) 0px 0px 1px 0px;">
+                                    <img src="img/coupon_line.png"
+                                         style="position: absolute;z-index: 2;width: 6%;height: 100%;margin-left: -35%;">
+                                    <p class="card-text" style="position: absolute;z-index: 3;margin-left: 30%;">
+                                        <span>￥</span><span
+                                            style="font-size: 1.5rem;font-weight: 900">{{obj.payment}}</span>
+                                    </p>
+                                </div>
+                                <div class="weui-media-box__bd" style="height: 100%;padding-top: 10px;">
+                                    <div style="border-bottom: 1.5px dashed #f1f3f5;height: 70%;position: relative;margin-right: 10px;"
+                                         class="weui-media-box__title">
+                                        <p style="color: #d14c4d;font-size: 0.7rem;margin-bottom: 0px;">
+                                            {{obj.coupontype}}
+                                        </p>
+                                        <img src="img/QRcode.png"
+                                             style="width: 10%;position: absolute;right: 0;top: 0;">
+                                        <p style="color: #989898;font-size: 0.7rem;"
+                                           class="weui-media-box__desc">
+                                            <span>优惠码：{{obj.coupon_id}}</span>
+                                        </p>
+                                    </div>
+                                    <div style="color: #989898;height: 15px;line-height: 15px;font-size: 0.5rem;">
+                                        {{obj.start_time.substring(0,10)}} - {{obj.end_time.substring(0,10)}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="weui-panel__ft" style="border-radius: 3px;min-height: 30px;">
+                                <a style="font-size: 0.7rem;padding: 5px;padding-left: 10px;" href="javascript:void(0);"
+                                   class="weui-cell weui-cell_access weui-cell_link"
+                                   ng-click="obj.isShow = !obj.isShow;">
+                                    <div class="weui-cell__bd" style="color: #989898;margin-top: 1%;">
+                                        <span>使用规则</span>
+                                        <i class="fa fa-chevron-up" ng-show="obj.isShow"
+                                            style="float: right;margin-right: 10px;"></i>
+                                        <i class="fa fa-chevron-down" ng-show="!obj.isShow"
+                                            style="float: right;margin-right: 10px;"></i>
+                                    </div>
+                                </a>
+                                <div ng-show="obj.isShow"
+                                     style="color: #989898;font-size: 0.7rem;padding-left: 10px;padding-right: 10px;padding-bottom: 5px;">
+                                    <p style="line-height: 1rem;">{{obj.couponrule}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="display: none;background: #efefef;">
+                <div class="weui-panel weui-panel_access" style="background: #efefef;">
+                    <div class="weui-panel__bd" style="background: #efefef;">
+                        <div ng-repeat="obj in usedCoupons"
+                             style="background: white;border-radius: 3px;box-shadow: 0px 0px 1px 0px #8b8b8b;margin: 10px;">
+                            <div class="weui-media-box weui-media-box_appmsg"
+                                 style="padding:0px;border-radius: 3px;height: 65px;">
+                                <div style="width: 33%;height: 100%;position: relative;margin-right: 10px;background: #c7c7c7;border-radius: 3px;box-shadow: rgb(139, 139, 139) 0px 0px 1px 0px;"
+                                     class="weui-media-box__hd">
+                                    <img src="img/coupon_line.png"
+                                         style="position: absolute;z-index: 2;width: 6%;height: 100%;margin-left: -35%;">
+                                    <p style="position: absolute;z-index: 3;margin-left: 30%;color: white;">
+                                        <span>￥</span><span
+                                            style="font-size: 1.5rem;font-weight: 900;">{{obj.payment}}</span>
+                                    </p>
+                                </div>
+                                <div class="weui-media-box__bd"
+                                     style="height: 100%;padding-top:10px;position: relative;">
+                                    <img src="img/used.png"
+                                         style="width: 15%;float: right;position: absolute;top: 0px;right: 0;">
+                                    <div style="border-bottom: 1.5px dashed #f1f3f5;height: 70%;"
+                                         class="weui-media-box__title">
+                                        <p style="color: #c2c2c2;font-size: 0.55rem;margin-bottom: 0px;">
+                                            <span>{{obj.coupontype}}</span>
+                                        </p>
+                                        <p style="color: #c2c2c2;font-size: 0.55rem;"
+                                           class="weui-media-box__desc">
+                                            <span>优惠码：{{obj.coupon_id}}</span>
+                                        </p>
+                                    </div>
+                                    <div style="color: #c2c2c2;height: 15px;line-height: 15px;font-size: 0.5rem;">
+                                        {{obj.start_time.substring(0,10)}} - {{obj.end_time.substring(0,10)}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="weui-panel__ft" style="border-radius: 3px;min-height: 30px;">
+                                <a style="font-size: 0.7rem;padding: 5px;padding-left: 10px;" href="javascript:void(0);"
+                                   class="weui-cell weui-cell_access weui-cell_link"
+                                   ng-click="obj.isShow = !obj.isShow;">
+                                    <div class="weui-cell__bd" style="color: #c2c2c2;margin-top: 1%;">
+                                        <span>使用规则</span>
+                                        <i ng-show="obj.isShow" class="fa fa-chevron-up"
+                                            style="float: right;margin-right: 10px;"></i>
+                                        <i ng-show="!obj.isShow" class="fa fa-chevron-down"
+                                            style="float: right;margin-right: 10px;"></i>
+                                    </div>
+                                </a>
+                                <div ng-show="obj.isShow"
+                                     style="color: #c2c2c2;padding-left: 10px;padding-right: 10px;padding-bottom: 5px;">
+                                    <p>{{obj.couponrule}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="display: none;background: #efefef;">
+                <div class="weui-panel weui-panel_access" style="background: #efefef;">
+                    <div class="weui-panel__bd" style="background: #efefef;">
+                        <div ng-repeat="obj in expiredCoupons"
+                             style="background: white;border-radius: 3px;box-shadow: 0px 0px 1px 0px #8b8b8b;margin: 10px;">
+                            <div class="weui-media-box weui-media-box_appmsg"
+                                 style="padding:0px;border-radius: 3px;height: 65px;">
+                                <div style="width: 33%;height: 100%;position: relative;margin-right:10px;background: #c7c7c7;border-radius: 3px;box-shadow: rgb(139, 139, 139) 0px 0px 1px 0px;"
+                                     class="weui-media-box__hd">
+                                    <img src="img/coupon_line.png"
+                                         style="position: absolute;z-index: 2;width: 6%;height: 100%;margin-left: -35%;">
+                                    <p style="position: absolute;z-index: 3;margin-left: 30%;color: white;">
+                                        <span>￥</span><span
+                                            style="font-size: 1.5rem;font-weight: 900;">{{obj.payment}}</span>
+                                    </p>
+                                </div>
+                                <div class="weui-media-box__bd" style="height: 100%;padding-top: 10px;">
+                                    <div style="border-bottom: 1.5px dashed #f1f3f5;height: 70%;"
+                                         class="weui-media-box__title">
+                                        <p style="color: #c2c2c2;font-size: 0.55rem;margin-bottom: 0px;">
+                                            <span>{{obj.coupontype}}</span>
+                                        </p>
+                                        <p style="color: #c2c2c2;font-size: 0.55rem;"
+                                           class="weui-media-box__desc">
+                                            <span>优惠码：{{obj.coupon_id}}</span>
+                                        </p>
+                                    </div>
+                                    <div style="color: #c2c2c2;height: 15px;line-height: 15px;font-size: 0.5rem;">
+                                        {{obj.start_time.substring(0,10)}} - {{obj.end_time.substring(0,10)}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="weui-panel__ft" style="border-radius: 3px;min-height: 30px;">
+                                <a style="font-size: 0.7rem;padding: 5px;padding-left: 10px;" href="javascript:void(0);"
+                                   class="weui-cell weui-cell_access weui-cell_link"
+                                   ng-click="obj.isShow = !obj.isShow;">
+                                    <div class="weui-cell__bd" style="color: #c2c2c2;margin-top: 1%;">
+                                        <span>使用规则</span>
+                                        <i ng-show="obj.isShow" class="fa fa-chevron-up"
+                                            style="float: right;margin-right: 10px;"></i>
+                                        <i ng-show="!obj.isShow" class="fa fa-chevron-down"
+                                            style="float: right;margin-right: 10px;"></i>
+                                    </div>
+                                </a>
+                                <div ng-show="obj.isShow"
+                                     style="color: #c2c2c2;padding-left: 10px;padding-right: 10px;padding-bottom: 5px;">
+                                    <p>{{obj.couponrule}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-show="searchingFlag" style="height: 40px;background: white;text-align: center;line-height: 40px;">
+            <i class="weui-loading"></i>
+        </div>
+    </div>
+</ion-view>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.gwhere.mapper.ResourceRichtextMapper" >
+  	<select id="getResourceRichtext" resultType="org.gwhere.model.TblPcResRichtext">
+		select p.*
+		from tbl_pc_res_richtext p
+		where resource_set_id = #{resId}
+		and p.status = 1
+		order by p.order_num
+	</select>
+</mapper>

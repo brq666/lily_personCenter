@@ -1,0 +1,59 @@
+<ion-view view-title="我的积分">
+    <ion-content>
+        <!--头部-->
+        <div class="brand-header" style="position: relative; height: 100px; text-align: center; margin-bottom: 20px;">
+            <img ng-src="img/radian_bg.png" style="position: absolute; left: 0; bottom: 0; height: 100px;">
+            <img ng-src="{{userinfo.wxInfo.headimgurl}}" class="head-img" style="position: relative; top: 20px;">
+            <p style="position: relative; top: 20px; font-size: 1.0rem; font-weight: 500; white-space: nowrap; color: #434343;">
+                {{userinfo.name}}
+            </p>
+        </div>
+
+        <!--会员卡-->
+        <div class="card-text" style="float: left; width: 60%; margin-left: 20%; margin-top: 20px; margin-bottom: 10px; position: relative;"
+             ng-style="{height: clientWidth*0.33+'px'}">
+            <img ng-src="{{brandInfo.config['cardBgPath'+userinfo.card.card_grade] ? imgPath+brandInfo.config['cardBgPath'+userinfo.card.card_grade] : imgPath+brandInfo.config.cardBgPath}}"
+                 style="display: block; width: 100%; height: 100%; border-radius: 5px; box-shadow: 0 0 5px #aaaaaa;">
+            <span style="position: absolute; top: 10px; left: 20px; font-size: 1.5rem; font-weight: 600;">{{gradeType[userinfo.card.card_grade]}}</span>
+            <span style="position: absolute; top: 45px; left: 20px; font-size: 0.8rem;">{{userinfo.card.card_no}}</span>
+            <span style="position: absolute; bottom: 5px; left: 20px; font-size: 0.7rem;">有效期至 {{userinfo.card.grade_expire}}</span>
+        </div>
+
+        <div style="clear: both; margin-bottom: 10px;text-align: center;">
+            <span style="font-size: 0.7rem; color: #989898;">
+                离升到更高会员等级还需要消费：{{userinfo.card.grade_up_point}}元
+            </span>
+        </div>
+
+        <div style="width: 100%;height: 80px;display: inline-flex; margin-top: 10px;">
+            <div style="width: 45%;color: #d14c4d;padding-left: 5%;position: relative;">
+                <p style="width: 100%;text-align: center;font-size: 1rem;position: absolute;top: 0;">可用积分</p>
+                <p style="width: 100%;text-align: center;font-size: 1.5rem;margin:0;position: absolute;bottom: 0;">
+                    {{userinfo.card.point}}</p>
+            </div>
+            <div style="width: 10%;text-align: center;">
+                <div style="width: 2px;height: 100%;background: #c2c2c2;margin-left: 50%;"></div>
+            </div>
+            <div style="width: 45%;color: #989898;padding-right: 5%;position: relative;">
+                <p style="width: 85%;text-align: center;font-size: 1rem;position: absolute;top: 0;">过期积分</p>
+                <p style="width: 85%;text-align: center;font-size: 0.7rem;position: absolute;top: 25%;">
+                    至{{userinfo.card.invalid_data}}</p>
+                <p style="width: 85%;text-align: center;font-size: 1.5rem;margin:0;position: absolute;bottom: 0;">
+                    {{userinfo.card.invalid_point}}</p>
+            </div>
+        </div>
+
+        <div class="weui-cells input-right-cells" style="margin-top: 20px;height: 50px;line-height: 38px;">
+            <a class="weui-cell weui-cell_access" ng-click="goPointHistory()">
+                <div class="weui-cell__bd">
+                    <p style="font-size: 1.0rem; margin: 0;">积分历史</p>
+                </div>
+                <div class="fa fa-chevron-right"></div>
+            </a>
+        </div>
+
+        <div style="padding: 10px; margin-top: 20px;">
+            <a class="weui-btn btn_brand" ng-click="goPointStore(brandInfo.config.pointStoreUrl)">立即兑换</a>
+        </div>
+    </ion-content>
+</ion-view>

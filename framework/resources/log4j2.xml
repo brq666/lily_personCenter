@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="ERROR" strict="true" name="XMLConfigTest">
+    <Appenders>
+        <Appender type="Console" name="DEBUGConsole">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%thread] [%p] [%logger{36}.%M:%L] - %msg%n"/>
+        </Appender>
+        <Appender type="Console" name="SPRINGOUT">
+            <Layout type="PatternLayout" pattern="%m MDC%X%n"/>
+            <Filters>
+                <Filter type="MarkerFilter" marker="FLOW" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <Filter type="MarkerFilter" marker="EXCEPTION" onMatch="DENY" onMismatch="ACCEPT"/>
+            </Filters>
+        </Appender>
+    </Appenders>
+    <Loggers>
+        <logger name="org.springframework" level="INFO"/>
+        <logger name="org.apache.ibatis" level="INFO"/>
+        <logger name="org.gwhere.*" level="DEBUG"/>
+        <logger name="druid.sql.Statement" level="DEBUG"/>
+        <Root level="INFO">
+            <AppenderRef ref="DEBUGConsole"/>
+        </Root>
+    </Loggers>
+</Configuration>

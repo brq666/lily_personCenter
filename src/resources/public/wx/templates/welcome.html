@@ -1,0 +1,8 @@
+<ion-view view-title="欢迎绑定">
+    <ion-content style="margin-bottom: 66px;">
+        <img ng-repeat="pic in welcomeRs" ng-src="{{imgPath+pic.picPath}}" style="display:block;">
+    </ion-content>
+    <div style="padding: 10px;position: fixed; bottom: 0;width: 100%;">
+        <a class="weui-btn btn_brand" ng-click="goLogin()">立刻绑定</a>
+    </div>
+</ion-view>

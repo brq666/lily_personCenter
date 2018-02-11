@@ -1,0 +1,10 @@
+//var path = "http://172.20.10.4:8080/personal_center/";
+var path = "http://localhost:8080/personal_center/";
+//var imgPath = "http://172.20.10.4:8080/personal_center/images/";
+var imgPath = "http://localhost:8080/personal_center/images/";
+// var path = "http://114.215.182.212:8081/personal_center/";
+// var imgPath = "http://114.215.182.212:8081/files/personal_center/";
+// var path = "http://172.20.10.4:8080/personal_center/";
+// var imgPath = "http://172.20.10.4:8080/personal_center/images/";
+// var path = "http://172.20.10.7:8080/personal_center/";
+// var imgPath = "http://172.20.10.7:8080/personal_center/images/";

@@ -1,0 +1,47 @@
+<ion-view view-title="">
+  <ion-content>
+
+    <div>
+      <img ng-src="{{imgPath+brandInfo.config.loginPicPath}}">
+    </div>
+
+    <div class="weui-cells weui-cells_form">
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label" style="text-align: center;">
+            <i class="fa fa-mobile-alt"></i>
+          </label>
+        </div>
+        <div class="weui-cell__bd">
+          <input ng-model="inputData.mobile" class="weui-input" type="tel" placeholder="请输入您的手机号"/>
+        </div>
+      </div>
+    </div>
+    <div style="padding-left: 10px; color: #d14c4d">&nbsp;{{validator.mobileErrMsg}}</div>
+
+    <div class="weui-cells weui-cells_form">
+      <div class="weui-cell weui-cell_vcode">
+        <div class="weui-cell__hd">
+          <label class="weui-label" style="text-align: center;">
+            <i class="fa fa-paper-plane"></i>
+          </label>
+        </div>
+        <div class="weui-cell__bd">
+          <input ng-model="inputData.validateCode" class="weui-input" type="tel" placeholder="请输入验证码">
+        </div>
+        <div class="weui-cell__ft">
+          <a class="weui-vcode-btn" ng-click="getValidateCode()" style="width: 110px; text-align: center;">{{vcodeBtnText}}</a>
+        </div>
+      </div>
+    </div>
+    <div style="padding-left: 10px; color: #d14c4d">&nbsp;{{validator.validateCodeErrMsg}}</div>
+
+    <div style="padding: 10px">
+      <a class="weui-btn btn_brand" ng-class="{'weui-btn_disabled': isLoading}" ng-click="login()">
+        <i ng-show="isLoading" class="weui-loading"></i>
+        提交验证
+      </a>
+    </div>
+
+  </ion-content>
+</ion-view>

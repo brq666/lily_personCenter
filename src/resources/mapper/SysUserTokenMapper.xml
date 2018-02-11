@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.gwhere.mapper.SysUserTokenMapper" >
+  	<select id="getEnableTokens" resultType="org.gwhere.model.SysUserToken">
+		select *
+  	      from sys_user_token
+  	     where status = 1
+  	     order by create_time desc
+  	     limit #{start}, #{pageSize}
+	</select>
+
+	<update id="disableUserToken">
+		update sys_user_token
+  	       set status = 0,
+  	           last_update_time = #{nowDate}
+  	     where user_id = #{userId}
+  	       and status = 1
+	</update>
+</mapper>

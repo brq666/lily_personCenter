@@ -1,0 +1,338 @@
+html, body {
+    /*height: 100%;*/
+    /*font-family: Microsoft YaHei, serif !important;*/
+    font-family: "宋体", serif !important;
+}
+
+ul, li, div, button, table {
+    outline: none !important;
+}
+
+.policyGroup {
+    z-index: 99;
+    color: #FFFFFF;
+    width: 100px;
+    height: 50px;
+    padding: 7px;
+    background-color: rgba(255, 99, 99, 0.72);
+    border: none;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.modal-800{
+    width: 800px;
+}
+
+.policyGroup .name{
+    width: 90px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.httpShade{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*background: rgba(226, 226, 226, 0.35);*/
+    z-index: 999999999;
+}
+
+.infoWindowBtnGrop {
+    position: absolute;
+    right: 10px;
+    top: 7px;
+}
+
+.infoWindowBtnGrop img {
+    height: 20px;
+    padding-left: 5px;
+}
+
+.agent-info-popup{
+    margin-top: 5px;
+}
+
+.map-left-container {
+    height: 100%;
+    margin-right: 600px
+}
+
+.map-right-container {
+    width: 600px;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    height: 100%;
+    margin: -10px 0;
+    padding: 10px 10px 0 10px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.map-search {
+    width: 70%;
+    height: 40px;
+    background-color: #fff;
+    box-shadow: 0 0 8px #cdcdcd;
+}
+
+.map-search-input {
+    border: none;
+    background: transparent;
+    outline: 0;
+    max-width: 380px;
+    box-sizing: border-box;
+    border: 0;
+    padding: 9px 0;
+    border-left: 10px solid transparent;
+    border-right: 27px solid transparent;
+    line-height: 20px;
+    font-size: 14px;
+    height: 30px;
+    color: #333;
+    position: relative;
+    border-radius: 2px 0 0 2px;
+}
+
+.map-search-button {
+    pointer-events: auto;
+    background: url(../img/map-icon.png) no-repeat 0 -76px #4786C9;
+    width: 57px;
+    height: 100%;
+    float: right;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 0 2px 2px 0;
+    box-shadow: 1px 2px 1px rgba(0, 0, 0, .15);
+}
+
+.map-search-input-clear {
+    cursor: pointer;
+    width: 27px;
+    float: right;
+    height: 30px;
+    background: url(../img/map-icon.png) no-repeat 0 -114px #fff;
+    display: none;
+}
+
+.agent-info-popup .row1 {
+    border-bottom: 1px solid #E6E6E6;
+    padding: 5px 0;
+}
+
+.agent-info-popup .row2 {
+    padding: 5px 0;
+}
+
+.alert {
+    display: none;
+    position: fixed;
+    border: 1px solid #F5F5F5;
+    cursor: default;
+    top: 0;
+    left: 0;
+    min-width: 300px;
+    max-width: 600px;
+    z-index: 999999999999;
+    text-align: center;
+    background: white;
+    -webkit-box-shadow: 12px 23px 51px -6px rgba(204, 204, 204, 1);
+    -moz-box-shadow: 12px 23px 51px -6px rgba(204, 204, 204, 1);
+    box-shadow: 12px 23px 51px -6px rgba(204, 204, 204, 1);
+}
+
+.alert .message {
+    width: 100%;
+    min-height: 60px;
+    text-align: left;
+}
+
+.modal-dialog {
+    z-index: 1100;
+}
+
+/* bootbox相关 */
+    /* bootbox中alert和confirm 的图层，以及其遮罩层的图层*/
+.bootbox {
+    z-index: 1200 !important;
+    margin-top: 150px;
+    overflow: inherit;
+}
+
+.bootbox + .modal-backdrop {
+    z-index: 1099 !important;
+}
+    /* bootbox样式改造 */
+.bootbox .modal-content {
+    padding: 6px 0;
+    border-radius: 4px;
+    box-shadow:0 0 15px #2564A5;
+}
+.bootbox .modal-content * {
+    border: none;
+    text-align: center;
+}
+
+.bootbox .modal-header {
+    padding-bottom: 0;
+}
+
+.bootbox .modal-header .modal-title{
+    font-weight: bold;
+}
+
+.bootbox .modal-header .modal-title img{
+    width: 70px;
+    height: 70px;
+    padding: 10px;
+    margin-left: 10px
+}
+
+.bootbox .modal-body {
+    color: grey;
+    padding: 5px;
+}
+
+.bootbox .bootbox-close-button {
+    position: absolute;
+    right: 8px;
+    top: 10px;
+    font-size: 12px;
+}
+
+.bootbox .btn {
+    padding: 4px 32px;
+    border-radius: 0;
+    border: 1px solid grey;
+    color: #000;
+    background-color: #fff
+}
+
+.bootbox .btn-default{
+    padding: 4px 32px;
+    border: 1px solid grey;
+    color: #fff;
+    background-color: #AEAEAE
+}
+
+.bootbox .btn-primary {
+    padding: 4px 32px;
+    border: 1px solid #0049a9;
+    color: #fff;
+    background-color: #0067ed
+}
+
+.bootbox .btn-warning {
+    padding: 4px 32px;
+    border: 1px solid #d11e00;
+    color: #fff;
+    background-color: #ff6247
+}
+
+.bootbox .modal-footer .btn + .btn {
+    margin-left: 15px;
+}
+
+
+
+.sidr {
+    z-index: 999 !important;
+}
+
+.stats-info {
+    font-family: "微软雅黑";
+    font-weight: bold;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin: 5px 0px;
+    border: 1px solid #F5BA91;
+    background: #FBE5D6;
+}
+
+.loading {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 9999999999;
+    left: 0;
+    background: transparent;
+    text-align: center;
+}
+
+.loading img{
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    border-radius: 5px;
+    color: #fff;
+    text-align: center;
+    text-overflow: ellipsis;
+    font-size: 15px;
+    margin-top: 250px;
+}
+
+.show.loading {
+    display: block !important;
+}
+
+.total div{
+    background-color: #F2F2F2;
+}
+
+.login-form {
+    width: 400px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.login-form p {
+    text-align: center;
+}
+
+.login-form button {
+    margin-top: 15px;
+    float: right;
+}
+
+.login-form .form-group {
+    padding: 5px 0;
+}
+
+/* img-uploader */
+.img-uploader {
+    padding: 3px 0 7px 0;
+    font-size: 12px;
+}
+
+.img-uploader div {
+    width:95px;text-align: right;padding-right: 10px; float: left;
+}
+
+.img-uploader img {
+    width:80px;height: 80px;
+}
+
+/* header-bar */
+.sidr {
+    transition: left 0.01s ease, top 0.5s ease-out !important;
+    -webkit-transition: left 0.01s ease, top 0.5s ease-out !important;
+}
+
+#containerWrap {
+    margin-top: 120px;
+    transition: margin-top 0.5s ease-out;
+    -webkit-transition: margin-top 0.5s ease-out;
+}
+
+body {
+    padding-right: 0 !important;
+}

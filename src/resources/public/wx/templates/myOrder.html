@@ -1,0 +1,78 @@
+<ion-view view-title="我的订单">
+    <!--头部-->
+    <ion-header-bar class="bkg_brand"
+                    style="padding: 5px 0 0 20px;box-shadow: none; height: 65px;display: inline-flex;">
+        <div style="width: 34%;height: 100%;">
+            <p style="width: 100%;height: 23px;margin: 0;font-size: 0.7rem;">起</p>
+            <div class="fake-input"
+                 style="width: 100%;height: 32px;background: #FFFFFF;color: #515151;font-size: 1rem;text-align: center;padding: 0;"
+                 ng-style="{border: '1px solid' + brandInfo.config.secondaryColor}"
+                 ng-click="openTimePicker('startTime')">
+                {{searchCondition.startTime}}
+            </div>
+        </div>
+        <div style="width: 8%;height: 32px;line-height: 32px;margin-top: 23px;text-align: center;font-size: 2rem;font-weight: 300;">
+            -
+        </div>
+        <div style="width: 34%;height: 100%;">
+            <p style="width: 100%;height: 23px;margin: 0;font-size: 0.7rem;">至</p>
+            <div class="fake-input"
+                 style="width: 100%;height: 32px;background: #FFFFFF;color: #515151;font-size: 1rem;text-align: center;padding: 0;"
+                 ng-style="{border: '1px solid' + brandInfo.config.secondaryColor}"
+                 ng-click="openTimePicker('endTime')">
+                {{searchCondition.endTime}}
+            </div>
+        </div>
+        <div style="width: 24%;padding: 23px 20px 0 20px;">
+            <a class="weui-btn btn_brand" style="height: 32px;line-height: 32px;padding: 0 5px;"
+               ng-click="searchOrders()">
+                <i class="fa fa-spinner" ng-show="searchingFlag"></i>
+                <i class="fa fa-search" ng-show="!searchingFlag"></i>
+            </a>
+        </div>
+    </ion-header-bar>
+
+    <ion-content style="top: 65px; background-color: #f4f4f4;">
+        <div style="width: 100%;min-height: 120px;margin-top: 10px;background: #fafafa;" ng-repeat="order in allOrders">
+            <div style="background: #FFFFFF;width: 100%;height: 40px;font-size: 1rem;line-height: 40px;padding-left: 5%;padding-right: 5%;">
+                <span style="font-weight: bold;">{{order.shop_name}}</span>
+                <span ng-show="order.is_refund" style="color: #d14c4d;float: right;">退单</span>
+                <span ng-show="!order.is_refund" style="color: #007ab7;float: right;">订单</span>
+            </div>
+            <p ng-show="!order.is_refund"
+               style="padding-left: 5%;color: #989898;font-size: 0.7rem;margin-top: 5px;margin-bottom: 0px;">
+                订单号：{{order.order_id}}</p>
+            <p ng-show="order.is_refund"
+               style="padding-left: 5%;color: #989898;font-size: 0.7rem;margin-top: 5px;margin-bottom: 0px;">
+                退单号：{{order.order_id}}</p>
+            <p style="padding-left: 5%;padding-right: 5%;color: #989898;font-size: 0.7rem;margin-bottom: 5px;">
+                下单时间：{{order.created}}<span style="float: right;">完成时间：{{order.modified}}</span></p>
+            <div style="width: 100%;height: 1px;background: #c2c2c2"></div>
+            <div ng-repeat="product in order.itemlist" style="width: 100%;height: 80px;">
+                <p style="padding-left: 5%;padding-right: 5%;font-size: 0.8rem;margin-top: 5px;margin-bottom: 0px;">
+                    <span>{{product.product_name}}</span>
+                    <span style="float: right;">{{product.itempayment}}</span>
+                </p>
+                <p style="padding-left: 5%;padding-right: 5%;font-size: 0.8rem;margin-top: 0px;margin-bottom: 5px;">
+                    <span style="color: #d14c4d">折扣率 &nbsp;{{product.discount_rate}}</span>
+                    <span style="float: right;text-decoration: line-through;color: #989898;">{{product.total_fee}}</span>
+                </p>
+                <p style="padding-left: 5%;padding-right: 5%;font-size: 0.8rem;float: right;color: #989898;">
+                    X{{product.product_num}}
+                </p>
+                <div ng-show="$index < order.itemlist.length - 1"
+                     style="width: 100%;height: 1px;background: #FFFFFF;margin-top: 8%;"></div>
+            </div>
+            <p style="width: 100%;height: 40px;background:#FFFFFF;line-height: 40px;padding-left: 5%;padding-right: 5%;font-size: 0.9rem;color: #515151;">
+                    <span ng-show="!order.is_refund" style="float: right;">共{{order.itemlist.length}}件商品 &nbsp;&nbsp;实付金额：￥<span
+                            style="font-size: 1.5rem;">{{order.payment}}</span></span>
+                <span ng-show="order.is_refund" style="float: right;">实退金额：￥<span style="font-size: 1.5rem;">{{order.payment}}</span></span>
+            </p>
+        </div>
+        <ion-infinite-scroll
+                ng-if="latestOrders.length >= pager.pageSize"
+                on-infinite="loadMore()"
+                distance="1%">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>
