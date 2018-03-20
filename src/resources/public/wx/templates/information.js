@@ -10,14 +10,14 @@ angular.module('starter.information', [])
         /**
          * 加载枚举值，并拼装成映射map
          */
-        EnumInfo.get(function (enumInfo) {
-            if (enumInfo[0].grade && enumInfo[0].grade.length > 0) {
-                for (var i = 0; i < enumInfo[0].grade.length; i++) {
-                    var obj = enumInfo[0].grade[i];
-                    $scope.gradeType[obj.gradeType] = obj.gradeName;
-                }
-            }
-        });
+        // EnumInfo.get(function (enumInfo) {
+        //     if (enumInfo[0].grade && enumInfo[0].grade.length > 0) {
+        //         for (var i = 0; i < enumInfo[0].grade.length; i++) {
+        //             var obj = enumInfo[0].grade[i];
+        //             $scope.gradeType[obj.gradeType] = obj.gradeName;
+        //         }
+        //     }
+        // });
 
         $scope.$on("$ionicView.enter", function () {
             UserAction.did(UserAction.getActionType().ENTER_PAGE, {page: 'information'});

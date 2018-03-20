@@ -36,19 +36,33 @@ angular.module('starter.myOrder', [])
             }
             // 将searchingFlag标志置为true，表示正在查询
             $scope.searchingFlag = true;
+            // $http({
+            //     method: 'POST',
+            //     url: path + 'remoteInterface/invoke.do',
+            //     data: {
+            //         url: $scope.brandInfo.config.baseRestUrl + 'user/queryOrderByUser',
+            //         plat_code: 'weixin',
+            //         page_size: $scope.pager.pageSize,
+            //         page_no: $scope.pager.pageIndex,
+            //         customerno: $scope.userInfo.openId,
+            //         start_time: searchConditionFormat.startTime,
+            //         end_time: searchConditionFormat.endTime
+            //     }
+            // })
+            var _params=$.extend({
+                plat_code: 'weixin',
+                page_size: $scope.pager.pageSize,
+                page_no: $scope.pager.pageIndex,
+                customerno: $scope.userInfo.openId,
+                start_time: searchConditionFormat.startTime,
+                end_time: searchConditionFormat.endTime
+            },sysParams());
             $http({
-                method: 'POST',
-                url: path + 'remoteInterface/invoke.do',
-                data: {
-                    url: $scope.brandInfo.config.baseRestUrl + 'user/queryOrderByUser',
-                    plat_code: 'weixin',
-                    page_size: $scope.pager.pageSize,
-                    page_no: $scope.pager.pageIndex,
-                    customerno: $scope.userInfo.openId,
-                    start_time: searchConditionFormat.startTime,
-                    end_time: searchConditionFormat.endTime
-                }
-            }).success(function (data, status, headers, config) {
+                method: 'GET',
+                url: $scope.brandInfo.config.baseRestUrl + 'user/queryOrderByUser',
+                params: _params
+            }).success(function (response, status, headers, config) {
+                var data=response.jsondata;
                 $scope.searchingFlag = false;
                 // 成功时，直接将查询结果赋给latestOrders，用于判断是否有上拉刷新
                 $scope.latestOrders = data;

@@ -36,17 +36,26 @@ angular.module('starter.couponManage', [])
             BrandInfo.get(function (brandInfo) {
                 $scope.brandInfo = brandInfo;
                 $scope.searchingFlag = true;
+                // $http({
+                //     method: 'POST',
+                //     url: path + 'remoteInterface/invoke.do',
+                //     data: {
+                //         url: $scope.brandInfo.config.baseRestUrl + 'unicoupon/getlist',
+                //         plat_code: 'weixin',
+                //         customerno: $scope.userinfo.openId
+                //     }
+                // })
+                var _params=$.extend({
+                    plat_code: 'weixin',
+                    customerno: $scope.userinfo.openId
+                },sysParams());
                 $http({
-                    method: 'POST',
-                    url: path + 'remoteInterface/invoke.do',
-                    data: {
-                        url: $scope.brandInfo.config.baseRestUrl + 'unicoupon/getlist',
-                        plat_code: 'weixin',
-                        customerno: $scope.userinfo.openId
-                    }
-                }).success(function (data, status, headers, config) {
+                    method: 'GET',
+                    url: $scope.brandInfo.config.baseRestUrl + 'unicoupon/getlist',
+                    params:_params
+                }).success(function (response, status, headers, config) {
                     $scope.searchingFlag = false;
-                    allCoupons = data;
+                    allCoupons = response.jsondata;
                     angular.forEach(allCoupons, function (n, i) {
                         var obj = angular.copy(n);
                         var end_time = new Date(obj.end_time.substring(0, 10));

@@ -11,14 +11,14 @@ angular.module('starter.main', [])
         /**
          * 加载枚举值，并拼装成映射map
          */
-        EnumInfo.get(function (enumInfo) {
-            if (enumInfo[0].grade && enumInfo[0].grade.length > 0) {
-                for (var i = 0; i < enumInfo[0].grade.length; i++) {
-                    var obj = enumInfo[0].grade[i];
-                    $scope.gradeType[obj.gradeType] = obj.gradeName;
-                }
-            }
-        });
+        // EnumInfo.get(function (enumInfo) {
+        //     if (enumInfo[0].grade && enumInfo[0].grade.length > 0) {
+        //         for (var i = 0; i < enumInfo[0].grade.length; i++) {
+        //             var obj = enumInfo[0].grade[i];
+        //             $scope.gradeType[obj.gradeType] = obj.gradeName;
+        //         }
+        //     }
+        // });
 
         $scope.$on("$ionicView.enter", function () {
             UserAction.did(UserAction.getActionType().ENTER_PAGE, {page: 'main'});
@@ -68,7 +68,9 @@ angular.module('starter.main', [])
 
         BrandInfo.get(function (brandInfo) {
             $scope.brandInfo = brandInfo;
-            $http.get(path + 'brand/getResourceSet.do?setId='+brandInfo.config.bannerRsId)
+            // 首页可配置接口暂使用本地mock数据
+            $http.get(path + 'wx/data/getResourceSet.json?setId='+brandInfo.config.bannerRsId)
+            // $http.get(path + 'brand/getResourceSet.do?setId='+brandInfo.config.bannerRsId)
                 .success(function (data, status, headers, config) {
                     if(data) {
                         $scope.banners = data;
