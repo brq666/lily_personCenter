@@ -14,9 +14,10 @@
              ng-style="{height: clientWidth*0.33+'px'}">
             <img ng-src="{{brandInfo.config['cardBgPath'+userinfo.card.card_grade] ? imgPath+brandInfo.config['cardBgPath'+userinfo.card.card_grade] : imgPath+brandInfo.config.cardBgPath}}"
                  style="display: block; width: 100%; height: 100%; border-radius: 5px; box-shadow: 0 0 5px #aaaaaa;">
-            <span style="position: absolute; top: 10px; left: 20px; font-size: 1.5rem; font-weight: 600;">{{gradeType[userinfo.card.card_grade]}}</span>
-            <span style="position: absolute; top: 45px; left: 20px; font-size: 0.8rem;">{{userinfo.card.card_no}}</span>
-            <span style="position: absolute; bottom: 5px; left: 20px; font-size: 0.7rem;">有效期至 {{userinfo.card.grade_expire}}</span>
+            <!-- <span style="position: absolute; top: 10px; left: 20px; font-size: 1.5rem; font-weight: 600;">{{gradeType[userinfo.card.card_grade]}}</span> -->
+            <span style="position: absolute; top: 10px; left: 20px; font-size: 1.5rem; font-weight: 600;color: #ffffff;">{{userinfo.card.card_type}}</span>
+            <span style="position: absolute; top: 45px; left: 20px; font-size: 0.8rem;color: #ffffff;">{{userinfo.card.card_no}}</span>
+            <span style="position: absolute; bottom: 5px; left: 20px; font-size: 0.7rem;color: #ffffff;">有效期至 {{userinfo.card.grade_expire}}</span>
         </div>
 
         <div style="clear: both; margin-bottom: 10px;text-align: center;">
